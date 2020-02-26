@@ -1,12 +1,15 @@
 import User from '../models/user.model';
 import _ from 'lodash';
-import errorHandler from './error.controller';
+import errorHandler from './../helpers/dbErrorHandler';
 
 const create = (req, res, next) => {
     const user = new User(req.body);
+    console.log("DATA : ");
+    console.log({body: req.body})
     user.save((err, result) => {
         if (err) {
-            return res.status(400).json({
+            console.error("Error: Issue createing new user: " + err)
+            return res.status(404).json({
                 error: errorHandler.getErrorMessage(err)
             })
         }

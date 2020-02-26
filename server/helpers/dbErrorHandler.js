@@ -9,11 +9,13 @@ const getErrorMessage = (err) => {
             default: 
                 message = 'Something went wrong IDK what the hell is going on any more'
         }
-    } else {
+    } else if (err.errors) {
         for (let errName in err.errors) {
             if (err.errors[errName].message)
                 message = err.errors[errName].messages
         }
+    } else {
+        message = err;
     }
     return message;
 }
