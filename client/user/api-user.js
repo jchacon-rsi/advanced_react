@@ -27,6 +27,10 @@ const read = (params, credentials) => {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + credentials.t
         }
+    }).then(response => {
+        return response.json()
+    }).catch(err => {
+        console.log(err);
     })
 }
 

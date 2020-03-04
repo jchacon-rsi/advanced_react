@@ -42,6 +42,8 @@ class Profile extends Component {
         read({
             userId: userId
         }, { t: jwt.token }).then((data) => {
+            console.log("DATA : ");
+            console.log({data:data})
             if (data.error) {
                 this.setState({ redirectToSignin: true })
             } else {

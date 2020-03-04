@@ -34,7 +34,12 @@ class Home extends Component {
                     </CardContent>
                 </Card>
                 <Link to="/users">Users</Link>
+                <br/>
                 <Link to="/signup">Signup</Link>
+                <br/>
+                <Link to="/signin">SignIn</Link>
+                <br/>
+                <Link to="/user/edit/">Edit</Link>
             </div>
         )
     }
