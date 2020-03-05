@@ -1,13 +1,18 @@
 
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import IconButton from 'material-ui/IconButton'
-import Button from 'material-ui/Button'
-import DeleteIcon from 'material-ui-icons/Delete'
-import Dialog, {DialogActions, DialogContent, DialogContentText, DialogTitle} from 'material-ui/Dialog'
+import IconButton from '@material-ui/core/IconButton'
+import Button from '@material-ui/core/Button'
+import DeleteIcon from '@material-ui/icons/Delete'
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import auth from './../auth/auth-helper'
 import {remove} from './api-user.js'
 import {Redirect, Link} from 'react-router-dom'
+import { withStyles } from '@material-ui/core/styles';
 
 class DeleteUser extends Component {
     state = {
@@ -59,3 +64,5 @@ class DeleteUser extends Component {
         )
     }
 }
+
+export default DeleteUser

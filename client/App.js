@@ -2,8 +2,9 @@
 import React from 'react'
 import MainRouter from './MainRouter'
 import { BrowserRouter } from 'react-router-dom'
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
-import { indigo, pink } from 'material-ui/colors'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import indigo from '@material-ui/core/colors/indigo';
+import pink from '@material-ui/core/colors/pink';
 import { hot } from 'react-hot-loader'
 
 // Create a theme instance.

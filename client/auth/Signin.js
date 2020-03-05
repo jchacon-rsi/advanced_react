@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import Card, { CardActions, CardContent } from 'material-ui/Card'
-import Button from 'material-ui/Button'
-import TextField from 'material-ui/TextField'
-import Typography from 'material-ui/Typography'
-import Icon from 'material-ui/Icon'
+import Card from '@material-ui/core/Card'
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+import Typography from '@material-ui/core/Typography'
+// import Icon from '@material-ui/core/Icon'
 import PropTypes from 'prop-types'
-import { withStyles } from 'material-ui/styles'
+import { withStyles } from '@material-ui/core/styles'
 import auth from './../auth/auth-helper'
 import { Redirect } from 'react-router-dom'
 import { signin } from './api-auth.js'
@@ -85,7 +87,6 @@ class Signin extends Component {
                     <TextField id="password" type="password" label="Password" className={classes.textField} value={this.state.password} onChange={this.handleChange('password')} margin="normal" />
                     <br /> {
                         this.state.error && (<Typography component="p" color="error">
-                            <Icon color="error" className={classes.error}>error</Icon>
                             {this.state.error}
                         </Typography>)
                     }
