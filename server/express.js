@@ -9,8 +9,6 @@ import userRoutes from './routes/user.routes';
 import authRoutes from './routes/auth.routes';
 import devBundle from './devBundle';
 import path from 'path';
-<<<<<<< Updated upstream
-=======
 
 /*
  * React Modules:
@@ -35,7 +33,6 @@ import { createMuiTheme, createGenerateClassName, MuiThemeProvider } from '@mate
 import indigo from '@material-ui/core/colors/indigo';
 import pink from '@material-ui/core/colors/pink';
 
->>>>>>> Stashed changes
 const CURRENT_WORKING_DIR = process.cwd();
 
 const app = express();
@@ -50,12 +47,6 @@ app.use(cors());
 app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
 app.use('/', authRoutes);
 app.use('/', userRoutes);
-<<<<<<< Updated upstream
-
-app.get('/', (req, res) => {
-    res.status(200).send(Template())
-})
-=======
 app.get('/ping', (req, res) => {
     res.status("200").send("Hello World");
 })
@@ -121,7 +112,6 @@ app.get('*', (req, res) => {
     // res.status(200).send("Hello")
 })
 
->>>>>>> Stashed changes
 app.use((err, req, res, next) => {
     if (err.name === 'UnauthorizedError') {
         res.status(401).json({"error" : err.name + ": " + err.message});
