@@ -7,6 +7,7 @@ import Signin from './auth/Signin';
 import Profile from './user/Profile';
 import PrivateRoute from './auth/PrivateRoute';
 import EditProfile from './user/EditProfile';
+import Menu from './core/Menu';
 class MainRouter extends Component {
     componentDidMount() {
         /*

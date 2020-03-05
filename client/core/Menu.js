@@ -7,8 +7,8 @@ import IconButton from '@material-ui/core/IconButton'
 import HomeIcon from '@material-ui/icons/Home'
 import Button from '@material-ui/core/Button'
 
-import background from './../assets/images/bg.jpg';
-import rsi_banner from './../assets/images/rsi_banner.jpeg';
+// import background from './../assets/images/bg.jpg';
+// import rsi_banner from './../assets/images/rsi_banner.jpeg';
 import { Link, withRouter } from 'react-router-dom'; // withRouter will allow us to reference the history objects properties.
 import Toolbar from '@material-ui/core/Toolbar';
 import  AppBar from '@material-ui/core/AppBar';
