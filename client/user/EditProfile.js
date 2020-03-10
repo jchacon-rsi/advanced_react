@@ -91,9 +91,9 @@ class EditProfile extends Component {
             }
         })
     }
-    handleChange = () => {
+    handleChange = name => event => {
         this.setState({[name]: event.target.value})
-    }
+      }
     render() {
         const {classes} = this.props;
         if (this.state.redirectToProfile) {
