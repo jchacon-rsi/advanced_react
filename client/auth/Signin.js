@@ -82,7 +82,7 @@ class Signin extends Component {
                 <CardContent>
                     <Typography type="headline" component="h2" className={classes.title}>
                         Sign In
-              </Typography>
+                    </Typography>
                     <TextField id="email" type="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange('email')} margin="normal" /><br />
                     <TextField id="password" type="password" label="Password" className={classes.textField} value={this.state.password} onChange={this.handleChange('password')} margin="normal" />
                     <br /> {

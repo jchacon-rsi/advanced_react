@@ -16,6 +16,20 @@ const styles = theme => ({ //JSS => CSS-in-JS styling for material-ui
     },
     media: {
         minHeight: 330
+    },
+    title: {
+        textAlign: 'center',
+        fontSize: 24
+    },
+    alert: {
+        color: 'orange',
+        display: 'flex',
+        flex: '1',
+        flexDirection: 'column',
+        justifyConent: 'center',
+        alignItems: 'center',
+        fontSize: 24,
+        textAlign: 'center'
     }
 })
 
@@ -35,13 +49,9 @@ class Home extends Component {
                         </Typography>
                     </CardContent>
                 </Card>
-                <Link to="/users">Users</Link>
-                <br/>
-                <Link to="/signup">Signup</Link>
-                <br/>
-                <Link to="/signin">SignIn</Link>
-                <br/>
-                <Link to="/user/edit/">Edit</Link>
+                <Typography type="headline" component="span" className={classes.alert}>
+                    We need to figure out what to do with the homepage.
+                </Typography>
             </div>
         )
     }

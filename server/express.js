@@ -51,50 +51,50 @@ app.get('/ping', (req, res) => {
     res.status("200").send("Hello World");
 })
 
+ // 1. Prepare Material-UI styles
+ const sheetsRegistry = new SheetsRegistry();
+ const theme = createMuiTheme({
+     palette: {
+         primary: {
+             light: '#757de8',
+             main: '#3f51b5',
+             dark: '#002984',
+             contrastText: '#fff',
+         },
+         secondary: {
+             light: '#ff79b0',
+             main: '#ff4081',
+             dark: '#c60055',
+             contrastText: '#000',
+         },
+         openTitle: indigo['400'],
+         protectedTitle: pink['400'],
+         type: 'light'
+     },
+ })
+ const generateClassName = createGenerateClassName();
 
+
+ // 2. Generate markup with renderToString
+ /*
+  * The client app's root component (MainRouter) is wrapped with the Material-UI theme
+  * and JSS to provide the styling props needed by the (MainRouter) child components
+  * 
+  * The stateless (StaticRouter) is used instead of the (BrowserRouter) used on the client side
+  * in order to wrap (MainRouter) and provide the routing props used in implementing the client side components
+  * */
+ const context = {};
+ const markup = ReactDOMServer.renderToString(
+     <StaticRouter location={'/users'} context={context}>
+         <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
+             <MuiThemeProvider theme={theme}>
+                 <MainRouter/>
+             </MuiThemeProvider>
+         </JssProvider>
+     </StaticRouter>
+ )
 app.get('*', (req, res) => {
-    // 1. Prepare Material-UI styles
-    const sheetsRegistry = new SheetsRegistry();
-    const theme = createMuiTheme({
-        palette: {
-            primary: {
-                light: '#757de8',
-                main: '#3f51b5',
-                dark: '#002984',
-                contrastText: '#fff',
-            },
-            secondary: {
-                light: '#ff79b0',
-                main: '#ff4081',
-                dark: '#c60055',
-                contrastText: '#000',
-            },
-            openTitle: indigo['400'],
-            protectedTitle: pink['400'],
-            type: 'light'
-        },
-    })
-    const generateClassName = createGenerateClassName();
    
-
-    // 2. Generate markup with renderToString
-    /*
-     * The client app's root component (MainRouter) is wrapped with the Material-UI theme
-     * and JSS to provide the styling props needed by the (MainRouter) child components
-     * 
-     * The stateless (StaticRouter) is used instead of the (BrowserRouter) used on the client side
-     * in order to wrap (MainRouter) and provide the routing props used in implementing the client side components
-     * */
-    const context = {};
-    const markup = ReactDOMServer.renderToString(
-        <StaticRouter location={req.url} context={context}>
-            <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
-                <MuiThemeProvider theme={theme}>
-                    <MainRouter/>
-                </MuiThemeProvider>
-            </JssProvider>
-        </StaticRouter>
-    )
     // 3. Return template with markup and CSS styles in the response
     /*
      * ONce the markup is generated, we check if there was a redirect rendered in the component to be sent in the markup.
